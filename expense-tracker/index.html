@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpendWise</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="SpendWise logo" />
+        <span>SpendWise</span>
+      </div>
+
+      <nav id="mainNav">
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="add-expense.html">Add Expense</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="budget.html">Budget</a>
+        <a href="savings.html">Savings</a>
+      </nav>
+
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button id="helpBtn" class="small-btn">?</button>
+        <button id="themeToggle">🌙</button>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
+    </header>
+
+    <!-- OVERSPENDING ALERT BANNER -->
+    <div id="alertBanner" class="alert-banner hidden"></div>
+
+    <main class="container dashboard">
+
+      <!-- SUMMARY CARDS -->
+      <section class="summary">
+        <div class="summary-card purple">
+          <h4>Total Spent</h4>
+          <p id="totalSpent">£0.00</p>
+        </div>
+        <div class="summary-card green">
+          <h4>Monthly Budget</h4>
+          <p id="monthlyBudget">£0.00</p>
+        </div>
+        <div class="summary-card orange">
+          <h4>Remaining</h4>
+          <p id="remainingBudget">£0.00</p>
+        </div>
+      </section>
+
+      <!-- BUDGET PROGRESS BAR -->
+      <section class="card budget-overview-card">
+        <div class="budget-overview-header">
+          <span>Budget used</span>
+          <span id="budgetPercent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="dashProgressFill"></div>
+        </div>
+        <div class="budget-overview-labels">
+          <small>Spent: <strong id="dashSpent">£0.00</strong></small>
+          <small>Remaining: <strong id="dashRemaining">£0.00</strong></small>
+        </div>
+      </section>
+
+      <!-- CHARTS + RECENT EXPENSES -->
+      <section class="dashboard-grid">
+
+        <!-- LEFT: SPENDING OVERVIEW CHART -->
+        <div class="card chart-card">
+          <div class="chart-header">
+            <h3>Spending by category</h3>
+            <button id="toggleChart" class="small-btn">Switch view</button>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+
+        <!-- RIGHT: RECENT EXPENSES -->
+        <div class="card recent-card">
+          <div class="chart-header">
+            <h3>Recent expenses</h3>
+            <a href="expenses.html" class="small-btn">View all</a>
+          </div>
+          <div id="recentList" class="recent-list"></div>
+        </div>
+
+      </section>
+
+      <!-- MONTHLY TREND CHART -->
+      <section class="card trend-card">
+        <div class="chart-header">
+          <h3>Monthly spending trend</h3>
+          <select id="trendMonthSelect" class="trend-select"></select>
+        </div>
+        <canvas id="trendChart"></canvas>
+      </section>
+
+    </main>
+
+    <!-- ABOUT MODAL -->
+    <div id="helpModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>About SpendWise</h3>
+        <p>SpendWise is a student-focused budget and expense tracking application designed to help users manage spending, plan budgets, and set savings goals.</p>
+        <p><strong>Version:</strong> 1.0</p>
+        <button id="closeHelp" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

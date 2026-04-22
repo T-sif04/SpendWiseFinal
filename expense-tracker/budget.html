@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget | SpendWise</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="SpendWise logo" />
+        <span>SpendWise</span>
+      </div>
+
+      <nav id="mainNav">
+        <a href="index.html">Dashboard</a>
+        <a href="add-expense.html">Add Expense</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="budget.html" class="active">Budget</a>
+        <a href="savings.html">Savings</a>
+      </nav>
+
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button id="helpBtn" class="small-btn">?</button>
+        <button id="themeToggle">🌙</button>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <!-- BUDGET INPUT CARD -->
+      <div class="card budget-card">
+        <h2>Monthly Budget</h2>
+        <p class="budget-subtitle">Set your monthly spending limit</p>
+
+        <div class="budget-input-row">
+          <input id="budgetInput" type="number" placeholder="Enter amount (£)" />
+          <button id="saveBudget" class="primary-btn" style="margin-top:0; width:auto; padding: 0.6rem 1.2rem;">Save</button>
+        </div>
+
+        <!-- ALERT -->
+        <div id="budgetAlert" class="budget-alert hidden"></div>
+
+        <!-- PROGRESS -->
+        <div class="budget-progress-section">
+          <div class="budget-progress-header">
+            <span>Budget used</span>
+            <span id="budgetPercent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div id="progressFill"></div>
+          </div>
+          <div class="budget-progress-labels">
+            <small>Spent: <strong id="spentAmount">£0.00</strong></small>
+            <small>Remaining: <strong id="remainingAmount">£0.00</strong></small>
+          </div>
+        </div>
+
+        <p id="budgetMessage"></p>
+      </div>
+
+      <!-- CATEGORY BREAKDOWN -->
+      <div class="card category-breakdown-card">
+        <h3>Spending by category</h3>
+        <p class="budget-subtitle">See where your money is going</p>
+        <div id="categoryBreakdown" class="category-breakdown-list"></div>
+      </div>
+
+      <!-- SMART TIP -->
+      <div class="card smart-tip-card" id="smartTipCard">
+        <div class="smart-tip-icon">💡</div>
+        <div>
+          <h3>Smart tip</h3>
+          <p id="smartTip"></p>
+        </div>
+      </div>
+
+    </main>
+
+    <div id="helpModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>About SpendWise</h3>
+        <p>Track and manage your monthly budget effectively.</p>
+        <button id="closeHelp" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/budget.js"></script>
+  </body>
+</html>

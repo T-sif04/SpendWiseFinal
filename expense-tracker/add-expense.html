@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Expense | SpendWise</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="SpendWise logo" />
+        <span>SpendWise</span>
+      </div>
+
+      <nav id="mainNav">
+        <a href="index.html">Dashboard</a>
+        <a href="add-expense.html" class="active">Add Expense</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="budget.html">Budget</a>
+        <a href="savings.html">Savings</a>
+      </nav>
+
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button id="helpBtn" class="small-btn">?</button>
+        <button id="themeToggle">🌙</button>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
+    </header>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast hidden"></div>
+
+    <main class="container">
+      <div class="card form-card animate-in">
+        <h2>Add New Expense</h2>
+        <p class="budget-subtitle">Track a new spending entry</p>
+
+        <form id="expenseForm" class="goal-form">
+
+          <div class="form-group">
+            <label>Title</label>
+            <input id="title" type="text" placeholder="e.g. Groceries, Bus pass..." required />
+            <span class="field-hint">What did you spend on?</span>
+          </div>
+
+          <div class="form-group">
+            <label>Amount (£)</label>
+            <input id="amount" type="number" placeholder="e.g. 12.50" min="0.01" step="0.01" required />
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <select id="category"></select>
+          </div>
+
+          <div class="form-group hidden" id="customCategoryBox">
+            <label>New Category Name</label>
+            <input id="newCategory" type="text" placeholder="Enter category name..." />
+          </div>
+
+          <div class="form-group">
+            <label>Date</label>
+            <input id="date" type="date" required />
+          </div>
+
+          <button class="primary-btn" type="submit">Add Expense</button>
+
+        </form>
+
+        <!-- SUCCESS MESSAGE -->
+        <div id="successMsg" class="success-msg hidden">
+          <span>✅ Expense added successfully!</span>
+          <a href="expenses.html">View all expenses →</a>
+        </div>
+
+      </div>
+
+      <!-- QUICK STATS -->
+      <div class="card quick-stats-card">
+        <h3>This month so far</h3>
+        <div class="quick-stats-grid">
+          <div class="quick-stat">
+            <span class="quick-stat-label">Total spent</span>
+            <span class="quick-stat-value" id="qTotal">£0.00</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">Expenses logged</span>
+            <span class="quick-stat-value" id="qCount">0</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">Budget remaining</span>
+            <span class="quick-stat-value" id="qRemaining">£0.00</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <div id="helpModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>About SpendWise</h3>
+        <p>SpendWise helps students track expenses and plan finances.</p>
+        <button id="closeHelp" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/addExpense.js"></script>
+  </body>
+</html>

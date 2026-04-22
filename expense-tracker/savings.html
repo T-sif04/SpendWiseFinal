@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savings | SpendWise</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="SpendWise logo" />
+        <span>SpendWise</span>
+      </div>
+
+      <nav id="mainNav">
+        <a href="index.html">Dashboard</a>
+        <a href="add-expense.html">Add Expense</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="budget.html">Budget</a>
+        <a href="savings.html" class="active">Savings</a>
+      </nav>
+
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button id="helpBtn" class="small-btn">?</button>
+        <button id="themeToggle">🌙</button>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <!-- ADD GOAL FORM -->
+      <div class="card form-card animate-in">
+        <h2>Savings Goal Planner</h2>
+        <p class="budget-subtitle">Set a goal and track your progress</p>
+
+        <form id="goalForm" class="goal-form">
+          <div class="form-group">
+            <label>Goal Title</label>
+            <input id="goalTitle" type="text" placeholder="e.g. New Laptop, Holiday..." required />
+          </div>
+          <div class="form-group">
+            <label>Target Amount (£)</label>
+            <input id="goalAmount" type="number" placeholder="e.g. 500" required />
+          </div>
+          <div class="form-group">
+            <label>Amount Already Saved (£)</label>
+            <input id="savedAmount" type="number" placeholder="e.g. 100" value="0" min="0" />
+          </div>
+          <div class="goal-form-row">
+            <div class="form-group">
+              <label>Duration</label>
+              <input id="duration" type="number" placeholder="e.g. 6" required />
+            </div>
+            <div class="form-group">
+              <label>Time Unit</label>
+              <select id="timeUnit">
+                <option value="weeks">Weeks</option>
+                <option value="months" selected>Months</option>
+                <option value="years">Years</option>
+              </select>
+            </div>
+          </div>
+          <button class="primary-btn" type="submit">Add Goal</button>
+        </form>
+      </div>
+
+      <!-- SAVED GOALS LIST -->
+      <div id="goalsSection">
+        <h3 class="goals-heading">Your Goals</h3>
+        <div id="goalsList" class="goals-list"></div>
+      </div>
+
+    </main>
+
+    <div id="helpModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>About SpendWise</h3>
+        <p>Plan and visualise your savings goals.</p>
+        <button id="closeHelp" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/savings.js"></script>
+  </body>
+</html>

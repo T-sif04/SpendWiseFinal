@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expenses | SpendWise</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="SpendWise logo" />
+        <span>SpendWise</span>
+      </div>
+
+      <nav id="mainNav">
+        <a href="index.html">Dashboard</a>
+        <a href="add-expense.html">Add Expense</a>
+        <a href="expenses.html" class="active">Expenses</a>
+        <a href="budget.html">Budget</a>
+        <a href="savings.html">Savings</a>
+      </nav>
+
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button id="helpBtn" class="small-btn">?</button>
+        <button id="themeToggle">🌙</button>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+        <h2>All Expenses</h2>
+        <button id="export" class="small-btn">⬇ Export Excel</button>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="filters-bar card">
+        <div class="filter-group">
+          <label>Search</label>
+          <input id="searchInput" type="text" placeholder="Search by title..." />
+        </div>
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="filterCategory">
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Month</label>
+          <select id="filterMonth">
+            <option value="all">All Months</option>
+          </select>
+        </div>
+        <button id="clearFilters" class="small-btn">Clear</button>
+      </div>
+
+      <!-- RESULTS SUMMARY -->
+      <div class="results-summary">
+        <span id="resultsCount">0 expenses</span>
+        <span id="resultsTotal">Total: £0.00</span>
+      </div>
+
+      <!-- EXPENSES LIST -->
+      <div id="expensesList" class="expenses-list"></div>
+
+    </main>
+
+    <div id="helpModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>About SpendWise</h3>
+        <p>Review and manage all your expenses here.</p>
+        <button id="closeHelp" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="js/expenses.js"></script>
+  </body>
+</html>
